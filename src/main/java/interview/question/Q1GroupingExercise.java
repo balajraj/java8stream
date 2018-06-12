@@ -34,9 +34,13 @@ public class Q1GroupingExercise {
                                 Function.identity(), Collectors.counting()
                         )
                 );*/
-        mappy.entrySet().stream().collect( Collectors.gro );
+        Map<Integer,List<Map.Entry<String,Integer>>> ret = mappy.entrySet().stream().
+                collect( Collectors.groupingBy( x -> x.getValue()));
 
-        //System.out.println(result);
+        Map<Integer,String> result = ret.entrySet().stream().collect
+                ( Collectors.toMap( x -> x.getKey(), y ->  y.getValue().stream().map(
+                        p -> p.getKey()).collect(Collectors.joining(","))));
+        System.out.println(result);
 
 
     }
