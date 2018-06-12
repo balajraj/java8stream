@@ -1,11 +1,9 @@
 package interview.question;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 public class Q1GroupingExercise {
 
     private static Map<String, Integer> namesToNumPurchases = new HashMap<String, Integer>() {{
@@ -25,7 +23,28 @@ public class Q1GroupingExercise {
         12: Sue
      */
 
+    public void groupByExample(Map<String,Integer> mappy) {
+        /*List<String> items =
+                Arrays.asList("apple", "apple", "banana",
+                        "apple", "orange", "banana", "papaya");
+
+        Map<String, Long> result =
+                items.stream().collect(
+                        Collectors.groupingBy(
+                                Function.identity(), Collectors.counting()
+                        )
+                );*/
+        mappy.entrySet().stream().collect( Collectors.gro );
+
+        //System.out.println(result);
+
+
+    }
+
     public static void main(String[] args) {
+        Q1GroupingExercise q1 = new Q1GroupingExercise();
+        q1.groupByExample(namesToNumPurchases);
+        /*
         Iterator<Map.Entry<String, Integer>> it = namesToNumPurchases.entrySet().iterator();
         Map<Integer,List<String>> result = new HashMap<Integer,List<String>>();
         while (it.hasNext()) {
@@ -55,5 +74,6 @@ public class Q1GroupingExercise {
             String outStr = buf.toString();
             System.out.println(outStr.substring(0,outStr.length() -1));
         }
+        */
     }
 }
